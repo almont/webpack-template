@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RAPP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Background animation -->
+    <div id="words">
+        <div id="vertical-line" class="container">
+            <img src="images/vertical-line.png" alt="">
+        </div>
+        <div id="gradient"></div>
+        <ul id="list-of-words" class="container"></ul>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+        <header>
+            <h1>
+                <img src="images/RAPP.jpg" alt="RAPP">
+            </h1>
+        </header>
+
+        <div id="form">
+            <div id="emoji-list" class="hide">
+                <h4><strong>Emoji</strong></h4>
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row emoji-grid">
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">😍</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😘</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😛</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">😃</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😂</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😊</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">😉</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😁</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😭</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">😒</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😏</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😥</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">😳</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😲</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😯</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">😱</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😰</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">😓</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">👿</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">💤</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">💩</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">👏</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">✌</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">☺</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">👌</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">👍</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">💪</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">👊</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">👉</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">✊</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🙈</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🙊</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🙉</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🎁</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🎉</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">➡</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">✅</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🆗</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">✔</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🎶</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🎵</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🎧</a><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row emoji-grid">
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🔴</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🔵</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">⚫</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">💰</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">💸</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">💲</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">☀</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">☁</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🔥</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">☕</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">☔</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">❄</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">👓</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🎓</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">💍</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🚀</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🚀</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🚀</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🚀</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🚀</a><br>
+                                    <a href="#" id="emoji-test" onclick="emojiSelect(event)"></a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🔴</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🔵</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">⚫</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🔴</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🔵</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">⚫</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🔴</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🔵</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">⚫</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🔴</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🔵</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">⚫</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🔴</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🔵</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">⚫</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🔴</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🔵</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">⚫</a><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#" onclick="emojiSelect(event)">🔴</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">🔵</a><br>
+                                    <a href="#" onclick="emojiSelect(event)">⚫</a><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <form>        
+                <input type="text" id="subject" class="form-control" value="" autocomplete="off" required autofocus placeholder="Digite o subject" />        
+                <input type="image" id="smile" src="images/smile.jpg" alt="ENVIAR" onclick="emojiList(event)" />
+                <input type="image" id="arrow" src="images/arrow.jpg" alt="ENVIAR" onclick="search(event)" />
+            </form>
+            <div id="chars-counter" class="text-success text-right">0 caracter</div>
+            <div id="result" class="bg-light"></div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <!-- <script src="js/vendor/util.js"></script> -->
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+</html>
