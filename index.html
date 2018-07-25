@@ -31,10 +31,10 @@
             <div id="emoji-list" class="hide">
                 <h4><strong>Emoji</strong></h4>
 
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="1"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -189,21 +189,42 @@
                 </div>
                 
             </div>
-            <form>        
-                <input type="text" id="subject" class="form-control" value="" autocomplete="off" required autofocus placeholder="Digite o subject" />        
-                <input type="image" id="smile" src="images/smile.jpg" alt="ENVIAR" onclick="emojiList(event)" />
-                <input type="image" id="arrow" src="images/arrow.jpg" alt="ENVIAR" onclick="search(event)" />
-            </form>
-            <div id="chars-counter" class="text-success text-right">0 caracter</div>
-            <div id="result" class="bg-light"></div>
+            <div class="container">
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="subject" class="form-control" value="" autocomplete="off" required autofocus placeholder="Digite o subject" />
+                            <input type="image" id="smile" src="images/smile.jpg" alt="ENVIAR" onclick="emojiList(event)" />
+                            <input type="image" id="arrow" src="images/arrow.jpg" alt="ENVIAR" onclick="search(event)" />
+                            
+                            <div class="row">
+                                <div id="subject-copy" class="col-auto hide">
+                                    <div id="subject-text">Seu subject foi copiado.</div>
+                                    <div id="subject-ok">OK</div>
+                                </div>
+                                <div class="col">
+                                    <div id="chars-counter">0 caracter</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div id="result" class="hide"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <input type="button" id="copy" class="hide" value="Copiar" alt="Copiar" onclick="copySubject(event)" />
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
     <!-- Script -->
-    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="js/vendor/jquery-3.3.1.min.js"></script>
-    <!-- <script src="js/vendor/util.js"></script> -->
-    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/modernizr-3.6.0.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
     
     <!-- Google Analytics -->

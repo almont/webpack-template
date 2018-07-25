@@ -12,11 +12,13 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
 .show {
     visibility: visible;
     opacity: 1;
+    transition: opacity 0.2s linear;
 }
 
 .hide {
     visibility: hidden;
     opacity: 0;
+    transition: visibility 0s 0.1s, opacity 0.1s linear;
 }
 
 #form {
@@ -93,18 +95,77 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
     left: calc(100% - 5em);
 }
 
+#form #copy {
+    height: 60px;
+    padding: 0 1.4em;
+    color: #ffffff;
+    font-size: 1.25em;
+    text-align: center;
+    background-color: #d1d3d4;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    /* border: 1px solid #bcbec0; */
+    cursor: pointer;
+}
+/* #form #copy:hover {
+    background-color: #f1f1f1;
+} */
+
 #form #chars-counter {
-    margin: -1.8em 1.3em 0 0;
+    /* margin: -1.8em 1.3em 0 0; */
+    text-align: right;
+}
+
+#form .chars-counter-green {
+    color: #c3d600;
+}
+
+#form .chars-counter-red {
+    color: #ec0928;
+}
+
+#form #subject-text {
+    display: inline-block;
+    padding: 0.5em 0 0 1.4em;
+    color: #ffffff;
+    font-size: 1em;
+    text-align: left;
+    background-color: #ff6b00;
+    width: 104%;
+    height: 2.7em;
+    -webkit-border-radius: 2.3em;
+    -moz-border-radius: 2.3em;
+    border-radius: 2.3em;
+}
+
+#form #subject-ok {
+    display: inline-block;
+    position: relative;
+    top: calc(100% - 7.55em);
+    left: calc(100% - 2em);
+    padding: 0.4em 0 0 0;
+    color: #ffffff;
+    font-size: 1em;
+    text-align: center;
+    background-color: #c3d600;
+    width: 2.3em;
+    height: 2.3em;
+    -webkit-border-radius: 2.3em;
+    -moz-border-radius: 2.3em;
+    border-radius: 2.3em;
 }
 
 #form #result {
-    display: none;
-    margin: 2em 1.3em 0 1.3em;
-    padding: 0.8em;
+    height: 60px;
+    padding: 0.65em 1.65em;
+    color: #bcbec0;
     font-size: 1.25em;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
+    background-color: white;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    border: 1px solid #bcbec0;
 }
 
 #words {
@@ -140,19 +201,18 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
     list-style-type: none;
     color: #e6e7e8;
     font-size: 1.5em;
-    /* -webkit-animation: credits 120s linear infinite 1s;
+    -webkit-animation: credits 120s linear infinite 1s;
     -moz-animation: credits 120s linear infinite 1s;
-    animation: credits 120s linear infinite 1s; */
-    -webkit-animation: credits 30s linear infinite 1s;
+    animation: credits 120s linear infinite 1s;
+    /* -webkit-animation: credits 30s linear infinite 1s;
     -moz-animation: credits 30s linear infinite 1s;
-    animation: credits 30s linear infinite 1s;
+    animation: credits 30s linear infinite 1s; */
+}
+@keyframes credits {
+    0% { top: 0; }
+    100% { top: -500%; }
 }
 
 #words #list-of-words li {
     padding: 0.625em 0;
-}
-
-@keyframes credits {
-    0% { top: 0; }
-    100% { top: -500%; }
 }
