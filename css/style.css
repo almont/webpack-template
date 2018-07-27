@@ -26,8 +26,8 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
     /* margin: 260px 0 0 0; */
 }
 
-#form #emoji-list {
-    margin: 0 0 0.5em 0;
+#form #emoji {
+    margin: 2.3em 0 0.5em 0;
     padding: 0 2.8em;
     color: #bcbec0;
     font-size: 1.25em;
@@ -38,33 +38,46 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
     border: 1px solid #bcbec0;
 }
 
-#form #emoji-list h4 {
+#form #emoji h5 {
     margin: 0.5em 0;
-    padding: 0 0 0.3em 0;
+    padding: 0 0 0.3em 0.2em;
     border-bottom: 2px solid #e1e1e1;
 }
 
-#form #emoji-list .carousel {
-    margin: 1.2em 0 2.25em 0;
-}
-
-#form #emoji-list .carousel-indicators {
-    bottom: -2.4em;
-}
-
-#form #emoji-list .carousel-indicators li {
-    border-radius: 10px;
-    width: 10px;
-    height: 10px;
-    background-color: #f1f1f1;
-}
-
-#form #emoji-list .carousel-indicators .active {
-    background-color: #d7d7d7;
-}
-
-#form #emoji-list .emoji-grid {
+#form #emoji .emoji-grid {
     font-size: 1.2em;
+}
+
+#form #emoji-box {
+    overflow: scroll;
+    margin-bottom: 20px;
+    height: 110px;
+}
+
+#form #emoji-box ul { 
+    margin: 0;
+    padding: 0;
+}
+
+#form #emoji-box li { 
+    width: 3.2em;
+    /* padding: 1em; */
+    display: inline-block; 
+    text-align: center;
+    vertical-align: middle;
+    /* border: 1px solid red; */
+}
+
+#form #emoji-list .emoji-link {
+    color: #000000;
+    font-size: 1.25em;
+    text-decoration: none;
+}
+
+#form #subject-result {
+    position: relative;
+    top: -6.1em;
+    padding: 0.5em 0;
 }
 
 #form #subject {
@@ -97,6 +110,7 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
 
 #form #copy {
     height: 60px;
+    margin: 12em 0 0 0;
     padding: 0 1.4em;
     color: #ffffff;
     font-size: 1.25em;
@@ -157,15 +171,18 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
 }
 
 #form #result {
+    position: relative;
+    top: -4.83em;
     height: 60px;
-    padding: 0.65em 1.65em;
+    padding: 0.75em 2.79em;
     color: #bcbec0;
     font-size: 1.25em;
     background-color: white;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-    border: 1px solid #bcbec0;
+    border: 1px solid #ff6b00;
+    cursor: text;
 }
 
 #words {
@@ -197,7 +214,7 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
 #words #list-of-words {
     position: relative;
     z-index: -2;
-    padding: 0 0 0 4.167em;
+    padding: 0 0 0 3.7em;
     list-style-type: none;
     color: #e6e7e8;
     font-size: 1.5em;
