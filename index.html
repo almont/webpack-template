@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!-- Background animation -->
+    <!-- Background list animation -->
     <div id="words">
         <div id="vertical-line" class="container">
             <img src="images/vertical-line.png" alt="">
@@ -22,45 +22,43 @@
     <!-- Content -->
     <div class="container">
         <header>
-            <h1>
+            <h1 id="rapp">
                 <img src="images/RAPP.jpg" alt="RAPP">
             </h1>
         </header>
 
         <div id="form">
-            <div class="container">
-                <form>
-                    <div class="row">
-                        <div class="col">
-                            <div id="emoji" class="hide">
-                                <h5>
-                                    <strong>Emoji</strong>
-                                </h5>
-                                <div id="emoji-box">
-                                    <ul id="emoji-list"></ul>
-                                </div>
-                            </div>
-                            <div>
-                                <input type="text" id="subject" class="form-control" value="" autocomplete="off" required autofocus placeholder="Digite o subject" />
-                                <input type="image" id="smile" src="images/smile.jpg" alt="ENVIAR" onclick="emojiList(event)" />
-                                <input type="image" id="arrow" src="images/arrow.jpg" alt="ENVIAR" onclick="search(event)" />
-                                <div id="result" class="hide" onclick="result(event)"></div>
-                            </div>
-                            <div id="subject-result" class="row">
-                                <div id="subject-copy" class="col-auto hide">
-                                    <div id="subject-text">Seu subject foi copiado.</div>
-                                    <div id="subject-ok">OK</div>
-                                </div>
-                                <div class="col">
-                                    <div id="chars-counter">0 caracter</div>
-                                </div>
+            <div>
+                <div class="row">
+                    <div class="col">
+                        <div id="emoji" class="hide">
+                            <h5>
+                                <strong>Emoji</strong>
+                            </h5>
+                            <div id="emoji-box">
+                                <ul id="emoji-list"></ul>
                             </div>
                         </div>
-                        <div class="col-auto">
-                            <input type="button" id="copy" class="hide" value="Copiar" alt="Copiar" onclick="copySubject(event)" />
+                        <div>
+                            <input type="text" id="subject" class="form-control" value="dinheiro facil $" autocomplete="off" required autofocus placeholder="Digite o subject" />
+                            <input type="image" id="smile" src="images/smile.jpg" alt="ENVIAR" onclick="showEmojiList(event)" />
+                            <input type="image" id="arrow" src="images/arrow.jpg" alt="ENVIAR" onclick="search(event)" />
+                            <div id="result" class="hide" onclick="result(event)"></div>
+                        </div>
+                        <div id="subject-result" class="row">
+                            <div id="subject-copy" class="col-auto hide">
+                                <div id="subject-text">Seu subject foi copiado.</div>
+                                <div id="subject-ok">OK</div>
+                            </div>
+                            <div class="col">
+                                <div id="chars-counter">0 caracter</div>
+                            </div>
                         </div>
                     </div>
-                </form>
+                    <div class="col-auto">
+                        <input type="button" id="copy" class="hide" value="Copiar" alt="Copiar" onclick="copySubject(event)" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,7 +1,12 @@
 // Elements
 const listOfWordsElement = document.getElementById('list-of-words');
 const resultElement = document.getElementById('result');
-const emojiElement = document.getElementById('emoji-list');
+const emojiListElement = document.getElementById('emoji-list');
+const subjectCopyElement = document.getElementById('subject-copy');
+const subjectElement = document.getElementById('subject');
+const charsCounterElement = document.getElementById('chars-counter');
+const copyElement = document.getElementById('copy');
+const emojiElement = document.getElementById('emoji');
 
 
 // Array of bad words
@@ -9,72 +14,56 @@ const badWords = ['$', 'ganhe dinheiro enviando emails', 'trabalhe em casa', 're
 
 
 // Array of emoji
-const emojList = ['❤', '❥', '웃', '유', '🍾', '☮', '✌', '☏', '☢', '☠', '✔', '☑', '♚', '▲', '♪', '✈', '⌚', '¿', '♥', '❣', '♂', '♀', '⚤', 'Ⓐ', '✍', '✉', '☣', '☤', '✘', '☒', '♛', '▼', '♫', '⌘', '⌛', '¡', '♡', 'ღ', 'ツ', '☼', '☁', '❅', '♒', '✎', '©', '®', '™', 'Σ', '✪', '✯', '☭', '➳', '⚑', '✞', '℃', '℉', '°', '✿', 'ϟ', '☃', '☂', '✄', '¢', '€', '£', '∞', '✫', '★', '½', '☯', '✡', '☪', '😍', '😘', '😛', '😃', '😂', '😊', '😉', '😁', '😭', '😒', '😏', '😥', '😳', '😲', '😯', '😱', '😰', '😓', '👿', '💤', '💩', '👏', '✌', '☺', '👌', '👍', '💪', '👊', '👉', '✊', '🙈', '🙊', '🙉', '🎁', '🎉', '➡', '✅', '🆗', '✔', '🎶', '🎵', '🎧', '🔴', '🔵', '⚫', '💰', '💸', '💲', '☀', '☁', '🔥', '☕', '☔', '❄', '👓', '🎓', '💍', '🚀'];
+const emojiList = ['❤', '❥', '웃', '유', '🍾', '☮', '✌', '☏', '☢', '☠', '✔', '☑', '♚', '▲', '♪', '✈', '⌚', '¿', '♥', '❣', '♂', '♀', '⚤', 'Ⓐ', '✍', '✉', '☣', '☤', '✘', '☒', '♛', '▼', '♫', '⌘', '⌛', '¡', '♡', 'ღ', 'ツ', '☼', '☁', '❅', '♒', '✎', '©', '®', '™', 'Σ', '✪', '✯', '☭', '➳', '⚑', '✞', '℃', '℉', '°', '✿', 'ϟ', '☃', '☂', '✄', '¢', '€', '£', '∞', '✫', '★', '½', '☯', '✡', '☪', '😍', '😘', '😛', '😃', '😂', '😊', '😉', '😁', '😭', '😒', '😏', '😥', '😳', '😲', '😯', '😱', '😰', '😓', '👿', '💤', '💩', '👏', '✌', '☺', '👌', '👍', '💪', '👊', '👉', '✊', '🙈', '🙊', '🙉', '🎁', '🎉', '➡', '✅', '🆗', '✔', '🎶', '🎵', '🎧', '🔴', '🔵', '⚫', '💰', '💸', '💲', '☀', '☁', '🔥', '☕', '☔', '❄', '👓', '🎓', '💍', '🚀'];
 
 
 // Build bad words and emoji lists
 (function () {
     // Words
-    let list = '';
-
-    for (let i = 0; i < badWords.length; i++) {
-        list += '<li>' + badWords[i] + '</li>';
-
-        // Scaping special chars
-        badWords[i] = badWords[i].replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
-    }
-
-    listOfWordsElement.innerHTML = list;
-
-
+    listOfWordsElement.innerHTML = badWords.map((word) => `<li>${word}</li>`).join('');
+    
     // Emoji
-    emojiElement.innerText = '';
-
-    for (let i = 0; i < emojList.length; i++) {
-        emojiElement.innerHTML += `<li><a class="emoji-link" href="#" onclick="emojiSelect(event)">${String(emojList[i]).toString()}</a></li>`;
-    }
+    emojiListElement.innerHTML = emojiList.map((emoji) => `<li><a class="emoji-link" href="#" onclick="emojiSelect(event)">${emoji}</a></li>`).join('');
 })();
 
 
 // Show and hide
-function showHide(element, status) {
-    if (status == 'show') {
-        element.classList.add('show');
-        element.classList.remove('hide');
-    } else if (status == 'hide') {
-        element.classList.add('hide');
-        element.classList.remove('show');
+function showHide(_element, _status) {
+    if (_status == 'show') {
+        _element.classList.add('show');
+        _element.classList.remove('hide');
+
+    } else if (_status == 'hide') {
+        _element.classList.add('hide');
+        _element.classList.remove('show');
+
     } else {
-        if (element.classList.contains('show')) {
-            element.classList.add('hide');
-            element.classList.remove('show');
+        if (_element.classList.contains('show')) {
+            _element.classList.add('hide');
+            _element.classList.remove('show');
 
         } else {
-            element.classList.add('show');
-            element.classList.remove('hide');
+            _element.classList.add('show');
+            _element.classList.remove('hide');
         }
     }
 }
 
 
 // Search for the bad words into subject line
-function matchWords(subject, words) {
-    // let regex = new RegExp("\\b(?:" + words.join("|") + ")\\b", "gi");
-    let regex = new RegExp("(?:" + words.join("|") + ")", "gi");
+function matchWords(_subject, _words) {
+    let regex = new RegExp("(?:" + _words.join("|") + ")", "gi");
     
-    return subject.match(regex) || [];
+    return _subject.match(regex) || [];
 }
 
 
 // Highlight words inside the subject
-function highlightWords(subject, result) {
-    let subjectLine = subject;
-    
-    for (let i = 0; i < result.length; i++) {
-        subjectLine = subjectLine.replace(result[i], `<span class='bg-danger text-warning'>${result[i]}</span>`);
-    }
+function highlightWords(_subject, _result) {
+    let subject = _subject;
+    let result = _result.map((word) => word.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&')).join('|');
 
-    return subjectLine;
+    return subject.replace(RegExp(result, "gi"), (word) => `<span class='bg-danger text-warning'>${word}</span>`);
 }
 
 
@@ -82,69 +71,64 @@ function highlightWords(subject, result) {
 function search(e) {
     e.preventDefault();
 
-    let copyText = document.getElementById('subject-copy');
-    showHide(copyText, 'hide');
+    let subject = subjectElement.value;
+    let words = badWords.map((word) => word.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&'));
+    let result = matchWords(subject, words);
 
-    let subject = document.getElementById('subject').value;
-    let result = matchWords(subject, badWords);
-    
-    showHide(resultElement, 'show');
     resultElement.innerHTML = highlightWords(subject, result);
+    showHide(resultElement, 'show');
+    showHide(subjectCopyElement, 'hide');
 }
 
 
 // Result
 function result(e) {
+    subjectElement.select();
+
     showHide(resultElement, 'hide');
 }
 
 
 // Char counter
 function charCounter() {
-    let chars = document.getElementById('subject').value;
-    let resultLabel = document.getElementById('chars-counter');
-    let copy = document.getElementById('copy');
-    let copyText = document.getElementById('subject-copy');
+    let chars = subjectElement.value;
     
     if (chars.length > 60) {
-        resultLabel.innerHTML = `<span class="chars-counter-red">${chars.length} caracteres</span>`;
-        showHide(copy, 'hide');
+        charsCounterElement.innerHTML = `<span class="chars-counter-red">${chars.length} caracteres</span>`;
+        showHide(copyElement, 'hide');
+        
     } else {
-        resultLabel.innerHTML = `<span class="chars-counter-green">${chars.length} caracteres</span>`;
-        showHide(copy, 'show');
+        charsCounterElement.innerHTML = `<span class="chars-counter-green">${chars.length} caracteres</span>`;
+        showHide(copyElement, 'show');
     }
 
-    showHide(copyText, 'hide');
+    showHide(subjectCopyElement, 'hide');
     showHide(resultElement, 'hide');
 };
-document.getElementById('subject').addEventListener('input', charCounter);
+subjectElement.addEventListener('input', charCounter);
 
 
 // Emoji list
-function emojiList(e) {
+function showEmojiList(e) {
     e.preventDefault();
 
-    let emojilist = document.getElementById('emoji');
-    showHide(emojilist);
+    showHide(emojiElement);
 }
 
 
 // Emoji selector
 function emojiSelect(e) {
-    document.getElementById('subject').value += e.target.innerText;
+    subjectElement.value += e.target.innerText;
     charCounter();
 }
 
 
 // Copy to clipboard
 function copySubject(e) {
-    let text = document.getElementById('subject');
-    text.select();
+    subjectElement.select();
     document.execCommand('copy');
 
-    let copyText = document.getElementById('subject-copy');
-    showHide(copyText, 'show');
-
+    showHide(subjectCopyElement, 'show');
     showHide(resultElement, 'hide');
 }
 
