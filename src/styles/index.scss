@@ -1,3 +1,4 @@
+@import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 
 body {
@@ -13,21 +14,26 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
 .show {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.2s linear;
     -webkit-transition: opacity 0.2s linear;
     -moz-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
 }
 
 .hide {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s 0.1s, opacity 0.1s linear;
     -webkit-transition: visibility 0s 0.1s, opacity 0.1s linear;
     -moz-transition: visibility 0s 0.1s, opacity 0.1s linear;
+    transition: visibility 0s 0.1s, opacity 0.1s linear;
 }
 
 #rapp {
     margin: 0 0 0 0.4em;
+}
+
+#language {
+    margin: 0.625em 0 0 calc(100% - 23.8em);
+    font-size: 1em;
 }
 
 #form {
@@ -113,14 +119,20 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
     font-size: 1.25em;
     text-align: center;
     background-color: #d1d3d4;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    transition: background-color 0.2s;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
     cursor: pointer;
 }
-/* #form #copy:hover {
-    background-color: #f1f1f1;
-} */
+#form #copy:hover {
+    background-color: #ee6001;
+    -webkit-transition: background-color 0.4s;
+    -moz-transition: background-color 0.4s;
+    transition: background-color 0.4s;
+}
 
 #form #subject-result {
     position: relative;
@@ -221,18 +233,20 @@ h1, h2, h3, h5, h5, h6, div, form, button, br {
 
 #words #list-of-words {
     position: relative;
+    top: -26em;
+    // top: -1370%;
     z-index: -2;
     padding: 0 0 0 3.7em;
     list-style-type: none;
     color: #e6e7e8;
     font-size: 1.5em;
-    -webkit-animation: credits 120s linear infinite 1s;
-    -moz-animation: credits 120s linear infinite 1s;
-    animation: credits 120s linear infinite 1s;
+    -webkit-animation: credits 150s linear infinite;
+    -moz-animation: credits 150s linear infinite;
+    animation: credits 150s linear infinite;
 }
 @keyframes credits {
-    0% { top: 0; }
-    100% { top: -500%; }
+    0% { top: -26em; }
+    100% { top: -1370%; }
 }
 
 #words #list-of-words li {

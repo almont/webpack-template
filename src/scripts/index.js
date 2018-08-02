@@ -1,3 +1,8 @@
+import 'bootstrap';
+import '../styles/index.scss';
+//import $ from "jquery";
+
+
 // Controller
 let IS_OK = false;
 
@@ -7,6 +12,8 @@ const resultElement = document.getElementById('result');
 const emojiListElement = document.getElementById('emoji-list');
 const subjectCopyElement = document.getElementById('subject-copy');
 const subjectElement = document.getElementById('subject');
+const smileElement = document.getElementById('smile');
+const arrowElement = document.getElementById('arrow');
 const charsCounterElement = document.getElementById('chars-counter');
 const copyElement = document.getElementById('copy');
 const emojiElement = document.getElementById('emoji');
@@ -21,10 +28,16 @@ const emojiList = ['❤', '❥', '웃', '유', '🍾', '☮', '✌', '☏', '☢
 // Build bad words and emoji lists
 (function () {
     // Words
-    listOfWordsElement.innerHTML = badWords.map((_word) => `<li>${_word}</li>`).join('');
-    
+    listOfWordsElement.innerHTML = badWords
+        .map((a) => [Math.random(), a]).sort((a, b) => a[0] - b[0]).map((a) => a[1]) /* shuffle array */
+        .map((_word) => `<li>${_word}</li>`).join('');
+
     // Emoji
-    emojiListElement.innerHTML = emojiList.map((_emoji) => `<li><a class="emoji-link" href="#" onclick="addEmoji(event)">${_emoji}</a></li>`).join('');
+    emojiListElement.innerHTML = emojiList
+        .map((a) => [Math.random(), a]).sort((a, b) => a[0] - b[0]).map((a) => a[1]) /* shuffle array */
+        .map((_emoji) => `<li><a class="emoji-link" href="#" onclick="addEmoji(event)">${_emoji}</a></li>`).join('');
+    
+    window.addEmoji = addEmoji;
 })();
 
 
@@ -53,9 +66,20 @@ function showHide(_element, _status) {
 
 // Search for the bad words into subject line
 function matchWords(_subject) {
-    const words = badWords.map((_word) => _word.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&')).join('|');
+    const words = badWords.map((_word) => {
+        let word = _word;
+
+        if (word.match(/[-[\]{}()*+?.,\\^$|#]/gi)) {
+            word = word.replace(/[-[\]{}()*+?.,\\^$|#]/gi, '\\$&');
+        } else {
+            word = `\\b${word}\\b`;
+        }
+
+        return word;
+        
+    }).join('|');
     const regex = new RegExp('(?:' + words + ')', 'gi');
-    
+
     return _subject.match(regex) || [];
 }
 
@@ -99,6 +123,18 @@ function search(_e) {
 
     showResult(subject, result);
 }
+arrowElement.addEventListener('click', search);
+subjectElement.addEventListener('keypress', function (e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) {
+        if (resultElement.classList.contains('show')) {
+            resultElement.classList.add('hide');
+            resultElement.classList.remove('show');
+        } else {
+            search(e);
+        }
+    }
+});
 
 
 // Result
@@ -107,6 +143,7 @@ function result() {
 
     showHide(resultElement, 'hide');
 }
+resultElement.addEventListener('click', result);
 
 
 // Char counter
@@ -117,14 +154,14 @@ function charCounter(_e) {
 
     showHide(subjectCopyElement, 'hide');
     showHide(resultElement, 'hide');
-    
+
     if (chars.length > 60) {
         charsCounterElement.innerHTML = `<span class="chars-counter-red">${chars.length} caracteres</span>`;
         showHide(copyElement, 'hide');
-        
+
     } else {
         charsCounterElement.innerHTML = `<span class="chars-counter-green">${chars.length} caracteres</span>`;
-        
+
         if (IS_OK == true) {
             showHide(copyElement, 'show');
         } else {
@@ -141,6 +178,7 @@ function showEmojiList(_e) {
 
     showHide(emojiElement);
 }
+smileElement.addEventListener('click', showEmojiList);
 
 
 // Emoji selector
@@ -163,3 +201,4 @@ function copySubject() {
     showHide(subjectCopyElement, 'show');
     showHide(resultElement, 'hide');
 }
+copyElement.addEventListener('click', copySubject);

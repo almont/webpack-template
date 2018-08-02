@@ -1,29 +1,33 @@
-# README #
+# Webpack Frontend Starterkit
 
-This README would normally document whatever steps are necessary to get your application up and running.
+A lightweight foundation for your next webpack based frontend project.
 
-### What is this repository for? ###
+```
+https://github.com/wbkd/webpack-starter
+```
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Installation
 
-### How do I get set up? ###
+```
+npm install
+```
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+### Start Dev Server
 
-### Contribution guidelines ###
+```
+npm run dev
+```
 
-* Writing tests
-* Code review
-* Other guidelines
+### Build Prod Version
 
-### Who do I talk to? ###
+```
+npm run build
+```
 
-* Repo owner or admin
-* Other community or team contact
+### Features:
+
+* ES6 Support via [babel-loader](https://github.com/babel/babel-loader)
+* SASS Support via [sass-loader](https://github.com/jtangelder/sass-loader)
+* Linting via [eslint-loader](https://github.com/MoOx/eslint-loader)
+
+When you run `npm run build` we use the [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) to move the css to a separate file and included in the head of your `index.html`, so that the styles are applied before any javascript gets loaded. We disabled this function for the dev version, because the loader doesn't support hot module replacement.
