@@ -33,7 +33,10 @@ module.exports = merge(common, {
       {
         test: /\.(js)$/,
         exclude: /(node_modules|bower_components)/,
-        use: 'babel-loader'
+        use: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
       },
       {
         test: /\.s?css/i,
