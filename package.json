@@ -1,5 +1,5 @@
 {
-  "name": "email-subject-line-validator-PT_BR",
+  "name": "Boilerplate",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -14,7 +14,9 @@
     "webpack",
     "frontend",
     "es6",
+    "es2015",
     "javascript",
+    "sass",
     "bootstrap"
   ],
   "author": "Andre Monteiro",
@@ -40,7 +42,6 @@
       "es2015"
     ]
   },
-  "homepage": "https://github.com/wbkd/yet-another-webpack-es6-starterkit#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
