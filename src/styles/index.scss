@@ -1,25 +1,4 @@
-@import "~bootstrap/scss/bootstrap";
-@import 'helpers/reset';
-@import 'helpers/mixins';
-
-
-$primary-color: black;
-$secondary-color: white;
-
-
-@mixin border-radius($property) {
-    -webkit-border-radius: $property;
-    -moz-border-radius: $property;
-    border-radius: $property;
-}
-
-
-html, body {
-    font-family: Arial, Helvetica, sans-serif;
-    @include font-size(16px);
-    color: $primary-color;
-    background-color: $secondary-color;
-}
+@import 'common';
 
 .content {
     padding: 2em;

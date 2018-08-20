@@ -1,0 +1,66 @@
+$primary-color: black;
+$secondary-color: white;
+$error-color: red;
+$success-color: green;
+
+@import "~bootstrap/scss/bootstrap";
+@import 'helpers/reset';
+@import 'helpers/mixins';
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+@mixin background($args...) {
+    -webkit-background: $args;
+    -moz-background: $args;
+    background: $args;
+}
+
+@mixin border-radius($property) {
+    -webkit-border-radius: $property;
+    -moz-border-radius: $property;
+    border-radius: $property;
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    transition: $args;
+}
+
+@mixin box-shadow($args...) {
+    -webkit-box-shadow: $args;
+    -moz-box-shadow: $args;
+    box-shadow: $args;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Cabin', Arial, sans-serif;
+    color: $primary-color;
+    @include font-size(16px);
+}
+
+input:focus:invalid {
+    border-bottom: 2px solid $error-color;
+}
+
+input:focus:valid {
+    border-bottom: 2px solid $success-color;
+}
+
+::-webkit-input-placeholder {
+    color: $primary-color !important;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+    @include transition(opacity 0.2s linear);
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+    @include transition(visibility 0s 0.1s, opacity 0.1s linear);
+}
