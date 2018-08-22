@@ -1,5 +1,9 @@
 @import 'common';
 
+div {
+	border: 1px solid $error-color;
+}
+
 .content {
     padding: 2em;
     @include border-radius(30px);

@@ -4,8 +4,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const Webpack = require('webpack');
 const Path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const ExtractSASS = new ExtractTextPlugin('styles/bundle.css');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -18,10 +17,10 @@ module.exports = merge(common, {
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new ExtractTextPlugin({ filename: 'bundle.css' }),
-    // compiling mode “scope hoisting”
-    new Webpack.optimize.ModuleConcatenationPlugin(),
-    ExtractSASS
+    new ExtractTextPlugin({
+      filename: '[name].bundle.css'
+    }),
+    new Webpack.optimize.ModuleConcatenationPlugin()
   ],
   resolve: {
     alias: {
@@ -36,8 +35,26 @@ module.exports = merge(common, {
         use: 'babel-loader'
       },
       {
-        test: /\.s?css/i,
-        use: ExtractSASS.extract(['css-loader?sourceMap=true&minimize=true', 'sass-loader'])
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                url: true,
+                minimize: true,
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
+          ]
+        })
       }
     ]
   }

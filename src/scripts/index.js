@@ -1,3 +1,7 @@
+import 'bootstrap';
+import '@fortawesome/fontawesome-free';
+import '../styles/index.scss';
+
 // import $ from "jquery";
 // $(document).ready(function () {
 //     console.log('jquery is here!');``

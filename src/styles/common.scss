@@ -3,9 +3,9 @@ $secondary-color: white;
 $error-color: red;
 $success-color: green;
 
-@import "~bootstrap/scss/bootstrap";
 @import 'helpers/reset';
 @import 'helpers/mixins';
+@import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.css";
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 
