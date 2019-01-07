@@ -10,6 +10,8 @@ import '../styles/index.scss';
 import { Animal } from './animal.js';
 import { Cat } from './cat.js';
 
+import marvel from './marvel';
+
 (() => {
 
     let animal = new Animal('animal', 4);
@@ -27,5 +29,13 @@ import { Cat } from './cat.js';
     let cat = new Cat('siamese', 4, true);
     cat.makeNoise('Meow');
     console.log(cat.metaData);
+
+    //https://github.com/axios/axios
+    //https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0
+    //https://swapi.co/
+    
+    marvel.getAllComics(10, comics => {
+        console.log(comics.data);
+    });
     
 })();

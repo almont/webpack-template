@@ -1,5 +1,7 @@
 @import 'common';
+@import 'nav';
 
-div {
-	border: 1px solid $success-color;
+.cover {
+    margin: 3em 0;
+    padding: 0 1em;
 }

@@ -1,0 +1,17 @@
+.nav {
+    padding: 0.5em 0;
+    @include background($secondary-color);
+}
+
+.nav-link {
+  font-weight: bold;
+}
+
+.nav-link + .nav-link {
+  margin-left: 2em;
+}
+
+.footer {
+  padding: 1em;
+  @include background($secondary-color);
+}

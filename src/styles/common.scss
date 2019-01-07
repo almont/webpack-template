@@ -1,5 +1,10 @@
-$primary-color: black;
-$secondary-color: white;
+$text-color: #fff;
+$text-hover: #999;
+$background-color: #333;
+$secondary-color: #444;
+
+$primary-color: blue;
+
 $error-color: red;
 $success-color: green;
 
@@ -33,12 +38,30 @@ $success-color: green;
     box-shadow: $args;
 }
 
-html, body {
-    width: 100%;
+html,
+body {
     height: 100%;
+    @include background($background-color);
     font-family: 'Cabin', Arial, sans-serif;
-    color: $primary-color;
     @include font-size(16px);
+    color: $text-color;
+}
+
+body {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+a,
+a:focus {
+    color: $text-color;
+}
+a:hover {
+    color: $text-hover;
 }
 
 input:focus:invalid {
@@ -50,7 +73,7 @@ input:focus:valid {
 }
 
 ::-webkit-input-placeholder {
-    color: $primary-color !important;
+    color: $text-color !important;
 }
 
 .show {
@@ -62,5 +85,6 @@ input:focus:valid {
 .hide {
     visibility: hidden;
     opacity: 0;
-    @include transition(visibility 0s 0.1s, opacity 0.1s linear);
+    @include transition(visibility 0s 0.1s,
+    opacity 0.1s linear);
 }

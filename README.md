@@ -1,6 +1,7 @@
 # Webpack front-end boilerplate
 
 
+
 ### Features:
 * Webpack
 * ES6
@@ -9,6 +10,7 @@
 * jQuery
 * Font Awesome
 * Bootstrap
+
 
 
 ### Installation
