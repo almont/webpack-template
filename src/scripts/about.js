@@ -1,6 +1,6 @@
-import 'bootstrap';
-import '../styles/about.scss';
+import 'bootstrap'
+import '../styles/about.scss'
 
 (() => {
-    console.log('about');
-})();
+    console.log('about')
+})()

@@ -1,19 +1,19 @@
 export class Animal {
 
     constructor(type, legs) {
-        this.type = type;
-        this.legs = legs;
+        this.type = type
+        this.legs = legs
     }
 
     makeNoise(sound = 'no sound') {
-        console.log(sound);
+        console.log(sound)
     }
 
     get metaData() {
-        return this;
+        return this
     }
 
     static returning() {
-        return 10;
+        return 10
     }
 }

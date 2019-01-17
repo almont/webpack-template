@@ -1,18 +1,16 @@
 $text-color: #fff;
 $text-hover: #999;
-$background-color: #333;
 $secondary-color: #444;
-
-$primary-color: blue;
-
+$background-color: #333;
 $error-color: red;
 $success-color: green;
+
 
 @import 'helpers/reset';
 @import 'helpers/mixins';
 @import "~bootstrap/scss/bootstrap";
-@import "~@fortawesome/fontawesome-free/css/all.css";
 @import url('https://fonts.googleapis.com/css?family=Cabin');
+
 
 @mixin background($args...) {
     -webkit-background: $args;
@@ -54,6 +52,11 @@ body {
     -ms-flex-pack: center;
     -webkit-box-pack: center;
     justify-content: center;
+}
+
+img {
+    object-fit: cover;
+    max-width: 100%;
 }
 
 a,

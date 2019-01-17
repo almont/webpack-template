@@ -5,13 +5,11 @@ const common = require('./webpack.common.js');
 const Webpack = require('webpack');
 const Path = require('path');
 
-const dest = Path.join(__dirname, '../dist');
-
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
   devServer: {
-    contentBase: dest,
+    contentBase: Path.join(__dirname, '../dist'),
     inline: true
   },
   plugins: [
@@ -22,7 +20,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.js$/,
         include: Path.resolve(__dirname, '../src'),
         enforce: 'pre',
         loader: 'eslint-loader',
@@ -31,12 +29,12 @@ module.exports = merge(common, {
         }
       },
       {
-        test: /\.(js)$/,
+        test: /\.js$/,
         include: Path.resolve(__dirname, '../src'),
         loader: 'babel-loader'
       },
       {
-        test: /\.s?css$/i,
+        test: /\.s[c|a]ss$/,
         use: ['style-loader', 'css-loader?sourceMap=true', 'sass-loader']
       }
     ]
