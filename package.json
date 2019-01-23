@@ -5,8 +5,8 @@
   "scripts": {
     "eslint": "eslint --ignore-path .gitignore .",
     "eslint-fix": "npm run pretest -- --fix",
-    "build": "webpack --config webpack/webpack.config.prod.js  --colors",
-    "dev": "webpack-dev-server --config webpack/webpack.config.dev.js"
+    "build": "webpack  --progress --color --config webpack/webpack.config.prod.js",
+    "dev": "webpack-dev-server --progress --color --hot --config webpack/webpack.config.dev.js"
   },
   "keywords": [
     "webpack",
@@ -43,7 +43,7 @@
       "es2015"
     ]
   },
-  "devDependencies": {
+  "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
@@ -63,9 +63,7 @@
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.5",
-    "webpack-merge": "^4.1.3"
-  },
-  "dependencies": {
+    "webpack-merge": "^4.1.3",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.9.0",
     "bootstrap": "^4.2.1",

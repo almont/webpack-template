@@ -10,7 +10,8 @@ module.exports = merge(common, {
   devtool: 'cheap-eval-source-map',
   devServer: {
     contentBase: Path.join(__dirname, '../dist'),
-    inline: true
+    compress: true,
+    port: 9000
   },
   plugins: [
     new Webpack.DefinePlugin({

@@ -1,4 +1,8 @@
 import 'bootstrap'
+import * as common from './common.js'
+import {Animal} from './animal.js'
+import {Cat} from './cat.js'
+import marvel from './marvel'
 import '../styles/index.scss'
 
 // import $ from "jquery"
@@ -6,30 +10,28 @@ import '../styles/index.scss'
 //     console.log('jquery is here!')``
 // })
 
-import { showOutline } from './common.js'
-import { Animal } from './animal.js'
-import { Cat } from './cat.js'
-import marvel from './marvel'
-
 
 (() => {
 
     let animal = new Animal('animal', 4)
-    console.log(animal)
+    common.log(animal)
     //
-    console.log(animal.legs)
+    console.log(animal.legs, 'info')
+    common.log(animal.legs, 'info')
     animal.legs = 3
-    console.log(animal.legs)
+    common.log(animal.legs, 'info')
     //
     animal.makeNoise()
     animal.makeNoise('Awwwww!')
     //
-    console.log(animal.metaData)
+    common.log(animal.metaData, 'success')
     //
     let cat = new Cat('siamese', 4, true)
     cat.makeNoise('Meow')
-    console.log(cat.metaData)
+    common.log(cat.metaData, 'warning')
 
+
+    common.log('END', 'error')
 
     // showOutline()
     
