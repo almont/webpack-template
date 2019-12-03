@@ -1,46 +1,4 @@
 /**
- * Media Queries
- * -----------------------------------------------------------------------------
- * A simple mixin for using media queries. Change the values to
- * fit your sites needs.
- *
- * Usage:
- *
- *      header {
- *          @include bp-small() {
- *              display: none;
- *          }
- *          @include bp-huge() {
- *              display: block;
- *          }
- *      }
- */
-
-@mixin bp-small {
-    @media only screen and (min-width: 20em) {
-        @content;
-    }
-}
-
-@mixin bp-medium {
-    @media only screen and (min-width: 40em) {
-        @content;
-    }
-}
-
-@mixin bp-large {
-    @media only screen and (min-width: 60em) {
-        @content;
-    }
-}
-
-@mixin bp-xl {
-    @media only screen and (min-width: 80em) {
-        @content;
-    }
-}
-
-/**
  * Font size
  * -----------------------------------------------------------------------------
  * This mixin will take a pixel value and convert it into a em value
@@ -60,58 +18,13 @@
  *      }
  */
 
-@function calculateEm($size, $context: 16px) {
-    @return ($size / $context) * 1em;
+@function calculateRem($size, $context: 16px) {
+    @return ($size / $context) * 1rem;
 }
 
 @mixin font-size($size) {
     font-size: $size;
-    font-size: calculateEm($size);
-}
-
-/**
- * Expand element outside its container
- * -----------------------------------------------------------------------------
- * This mixin will force an element to expand full width even if it has
- * a container. See demo here: http://codepen.io/sebastianekstrom/pen/vNjOao/
- *
- * Usage:
- *
- *      img {
- *          @include expand-full-width(16px)
- *      }
- *
- */
-
-@mixin expand-full-width() {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-}
-
-/**
- * Vertical align
- * -----------------------------------------------------------------------------
- * Vertical align any element by using top: 50% with the combination of
- * translateY(-50%). This will push the element 50% down from its parent,
- * as well as pushing itself down 50% of its own height. This will cause
- * the element to vertically align.
- *
- * Usage:
- *
- *      .logotype {
- *          @include vertical-align();
- *      }
- *
- *      .logotype--absolute {
- *          @include vertical-align(absolute);
- *      }
- *
- */
-
-@mixin vertical-align($position: relative) {
-    position: $position;
-    top: 50%;
-    transform: translateY(-50%);
+    font-size: calculateRem($size);
 }
 
 /**
@@ -170,28 +83,62 @@
 }
 
 /**
-*/
+ * prefix
+ * -----------------------------------------------------------------------------
+ *
+ * Usage:
+ *
+ *      .element {
+ *          @include prefix(transform, rotate(42deg), webkit ms);
+ *      }
+ *
+ */
 
-@mixin background($args...) {
-    -webkit-background: $args;
-    -moz-background: $args;
-    background: $args;
+@mixin prefix($property, $value, $vendors: webkit moz ms o) {
+    @if $vendors {
+        @each $vendor in $vendors {
+            #{"-" + $vendor + "-" + $property}: #{$value};
+        }
+    }
+    #{$property}: #{$value};
 }
 
+/**
+ * background
+ * -----------------------------------------------------------------------------
+ *
+ * Usage:
+ *
+ *      .element {
+ *          @include background(#ffffff);
+ *      }
+ *
+ */
+
+@mixin background($args...) {
+    @include prefix(background, $args);
+}
+
+/**
+ * border-radius
+ * -----------------------------------------------------------------------------
+ *
+ * Usage:
+ *
+ *      .element {
+ *          @include border-radius(50px 20px);
+ *      }
+ *
+ */
+
 @mixin border-radius($property) {
-    -webkit-border-radius: $property;
-    -moz-border-radius: $property;
-    border-radius: $property;
+    @include prefix(border-radius, $property);
 }
 
 @mixin transition($args...) {
-    -webkit-transition: $args;
-    -moz-transition: $args;
-    transition: $args;
+    @include prefix(transition, $args);
 }
 
 @mixin box-shadow($args...) {
-    -webkit-box-shadow: $args;
-    -moz-box-shadow: $args;
-    box-shadow: $args;
+    @include prefix(box-shadow, $args);
 }

@@ -5,11 +5,9 @@ $background-color: #333;
 $error-color: red;
 $success-color: green;
 
-
 @import 'helpers/normalize';
 @import 'helpers/mixins';
 @import url('https://fonts.googleapis.com/css?family=Cabin');
-
 
 * {
     margin: 0;
@@ -64,6 +62,5 @@ input:focus:valid {
 .hide {
     visibility: hidden;
     opacity: 0;
-    @include transition(visibility 0s 0.1s,
-    opacity 0.1s linear);
+    @include transition(visibility 0s 0.1s, opacity 0.1s linear);
 }

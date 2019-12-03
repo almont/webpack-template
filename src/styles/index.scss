@@ -1,18 +1,2 @@
 @import 'common';
 @import 'nav';
-
-.cover {
-    margin: 3em 0;
-    padding: 0 1em;
-}
-
-.cover .btn-lg {
-  padding: .75em 1.25em;
-  font-weight: bold;
-}
-
-.content {
-    padding: 2em;
-    @include border-radius(30px);
-    border: 1px solid $error-color;
-}
