@@ -7,9 +7,6 @@
 * ES6
 * JavaScript
 * SASS
-* jQuery
-* Font Awesome
-* Bootstrap
 
 
 

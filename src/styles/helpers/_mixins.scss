@@ -168,3 +168,30 @@
         clear: both;
     }
 }
+
+/**
+*/
+
+@mixin background($args...) {
+    -webkit-background: $args;
+    -moz-background: $args;
+    background: $args;
+}
+
+@mixin border-radius($property) {
+    -webkit-border-radius: $property;
+    -moz-border-radius: $property;
+    border-radius: $property;
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    transition: $args;
+}
+
+@mixin box-shadow($args...) {
+    -webkit-box-shadow: $args;
+    -moz-box-shadow: $args;
+    box-shadow: $args;
+}

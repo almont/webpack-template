@@ -1,4 +1,3 @@
-import 'bootstrap'
 import '../styles/about.scss'
 
 (() => {

@@ -6,57 +6,33 @@ $error-color: red;
 $success-color: green;
 
 
-@import 'helpers/reset';
+@import 'helpers/normalize';
 @import 'helpers/mixins';
-@import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 
 
-@mixin background($args...) {
-    -webkit-background: $args;
-    -moz-background: $args;
-    background: $args;
-}
-
-@mixin border-radius($property) {
-    -webkit-border-radius: $property;
-    -moz-border-radius: $property;
-    border-radius: $property;
-}
-
-@mixin transition($args...) {
-    -webkit-transition: $args;
-    -moz-transition: $args;
-    transition: $args;
-}
-
-@mixin box-shadow($args...) {
-    -webkit-box-shadow: $args;
-    -moz-box-shadow: $args;
-    box-shadow: $args;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html,
 body {
+    display: flex;
     height: 100%;
-    @include background($background-color);
     font-family: 'Cabin', Arial, sans-serif;
     @include font-size(16px);
     color: $text-color;
-}
-
-body {
-    display: -ms-flexbox;
-    display: -webkit-box;
-    display: flex;
-    -ms-flex-pack: center;
-    -webkit-box-pack: center;
-    justify-content: center;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    @include background($background-color);
 }
 
 img {
     object-fit: cover;
     max-width: 100%;
+    display: block;
 }
 
 a,
