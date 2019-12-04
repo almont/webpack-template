@@ -1,0 +1,28 @@
+nav {
+    padding: 10px 0;
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        list-style-type: none;
+
+        li {
+            a {
+                padding: 10px;
+                color: #333333;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            a:visited {
+                color: #333333;
+            }
+            a:focus {
+                text-decoration: underline;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

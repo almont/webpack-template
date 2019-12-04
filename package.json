@@ -15,7 +15,7 @@
         "sass"
     ],
     "scripts": {
-        "start": "webpack-dev-server --progress --color --hot --config webpack/webpack.config.dev.js",
+        "start": "webpack-dev-server --progress --color --hot --inline --config webpack/webpack.config.dev.js",
         "build": "webpack  --progress --color --config webpack/webpack.config.prod.js"
     },
     "babel": {

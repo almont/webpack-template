@@ -1,7 +1,29 @@
 @import 'common';
 @import 'nav';
+@import 'footer';
 
-.cover {
-    margin: 3em 0;
-    padding: 0 1em;
+header {
+    margin: 0 10px;
+}
+
+main {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+
+    ul {
+        margin: 10px 0 0 0;
+        padding: 0 0 0 20px;
+    }
+
+    .button {
+        max-width: 200px;
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+    }
 }

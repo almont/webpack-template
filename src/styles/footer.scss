@@ -1,0 +1,20 @@
+footer {
+    margin: 0 10px 10px 10px;
+    display: flex;
+    justify-content: center;
+    @include font-size(12px);
+
+    a {
+        color: #333333;
+        text-decoration: none;
+    }
+    a:visited {
+        color: #333333;
+    }
+    a:focus {
+        text-decoration: underline;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
